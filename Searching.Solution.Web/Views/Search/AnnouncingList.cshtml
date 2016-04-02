@@ -1,0 +1,37 @@
+﻿@*@using SearchingLibrary;
+@model List<Announcing>*@
+
+
+    
+        <div class="object" ng-repeat="ann in AnnList">
+            <a href="index.html">
+                <div class="objectava">
+                    <a href="asdezz.html">
+                        <img style="border-radius:150%; box-shadow: 0 0 5px rgba(0,0,0,0.5);" src="images/2.jpg"
+                             width="40" height="40" alt="Nickname" />
+                    </a>
+
+                </div>
+            </a>
+                <div class="tags">
+                    <a href=""><p>{{ann.UserName}} {{ann.UserLastName}}</p></a>
+                </div>
+                <div class="date">
+                    20.12.12
+
+                </div>
+
+                <div class="advertisements">
+                    <div class="nameadvertisements">
+                        {{ann.Name_Announcing}}
+                    </div>
+
+                    @*Здравствуйте. Помогите найти девушку, которая 15. 02. 2016, около 18:00, играла на скрипке в переходе с Театральной на Золотые Ворота. У неё, в чехле для скрипки, была табличка с надписью «для учёбы в университете». Я сильно спешил, посему не мог позволить себе подождать окончания её игры на инструменте, чтобы познакомиться. Если вы это читаете, то я тот парень, который сперва дал немного денег и ушёл, а потом, вернулся, и докинул ещё. Буду весьма признательным, если кто поможет найти скрипачку.*@
+                    {{ann.Info_Announcing}}
+
+
+
+                </div>
+
+</div>
+

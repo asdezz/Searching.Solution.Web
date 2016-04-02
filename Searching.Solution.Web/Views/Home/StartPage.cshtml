@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html ng-app="appModule" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Searching</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body ng-controller="StartController">
+    <div id="wrapper">
+        <div id="header">
+            <div class="searching" style="float:left; height:70px; width:200px; margin-top:-12px;margin-left:20px;  "><a href="home.html">Searching</a></div>
+            <div class="menu">
+                <ul>
+                    <li><a ng-click="Clear()" ui-sref="stateSearch" style="margin-left:-300px;">Поиск</a></li>
+                    <li><a ui-sref="stateTest">Уведомления</a></li>
+                    <li><a ui-sref="allah">Сообщения</a></li>
+                    <li><a href="">Подписки</a></li>
+                    <li><a ui-sref="stateProfile" style="">Профиль</a></li>
+                </ul>
+            </div>
+        </div>
+        <div ui-view="SearchContainer" id="content" style="">
+            
+        </div>
+        
+    </div>
+    <div>
+        <ng-view>
+        </ng-view>
+    </div>
+
+    @*<div class="col-md-6">
+        <div ></div>
+    </div>*@
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.2.7/angular-local-storage.min.js"></script>
+    @Scripts.Render("~/bundles/logic")
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿@*@using SearchingLibrary;
+@model List<Categories>*@
+
+<div class="search_menu" >
+    <ul style="float:left; text-align:left; text-decoration: none;">
+        @*<li><a href="" style="color:#013846;">Спорт</a></li>
+        <li><a href="" style="color:#013846">Отдых</a></li>
+        <li><a href="" style="color:#013846">Прогулки по городу</a></li>
+        <li><a href="" style="color:#013846">Животные</a></li>*@
+        @*@foreach (var c in Model)
+        {
+            <li><a ui-sref=".Announcing({categories_id:@c.Categories_id})" style="color:#013846;">@c.Name_Category</a></li>
+        }*@
+        <li ng-repeat="category in Categories"><a ng-click="GetAnnForCategories(category.Categories_id)" ui-sref=".Announcing({categories_id:{{category.Categories_id}}})" style="color:#013846;">{{category.Name_Category}}</a></li>
+    </ul>
+</div>
+<div ui-view="AnnContainer">
+
+</div>
+<div class="searchadv">
+    <p style="color:#4682B4; font-size:16px; font-weight:bold;">Регион</p>
+    <form>
+        <p>
+            <select name="country">
+                <optgroup label="СНГ">
+                    <option value="r1">Украина</option>
+                    <option value="r2">Россия</option>
+                    <option value="r3">Беларусь</option>
+                </optgroup>
+                <optgroup label="Европа">
+                    <option value="u1">Латвия</option>
+                    <option value="u2">Англия</option>
+                    <option value="u3">Франция</option>
+                </optgroup>
+            </select>
+        </p>
+        <p>
+            <select name="city">
+
+                <option value="r1">Киев</option>
+                <option value="r2">Москва</option>
+                <option value="r3">Минск</option>
+            </select>
+        </p>
+        <p>
+            <select name="rayon">
+                <optgroup label="Киев">
+                    <option value="r1">Дарницкий</option>
+
+                </optgroup>
+                <optgroup label="Москва">
+                    <option value="u1">Киевский</option>
+
+                </optgroup>
+            </select>
+        </p>
+        <p><input type="submit" value="Найти" /></p>
+    </form>
+
+
+</div>
+
+<h1></h1>
+<h2></h2>
+<div class="divider"></div>
+
+<div id="footer">
+
+</div>
