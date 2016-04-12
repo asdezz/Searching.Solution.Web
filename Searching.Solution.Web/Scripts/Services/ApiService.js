@@ -32,41 +32,37 @@ var ApiService = function ($http, localStorageService) {
     localStorageService.set('filter', SaveFilter);
     this.GetCategories = function () {
         return $http({
-            url: 'http://192.168.100.101/Searching/WCFRESTService.svc/GetCategories',
+            url: 'http://192.168.100.101/api/WCFRESTService.svc/GetCategories',
             method: 'GET'
         });
     };
 
-    this.GetFilter = function () {
-        return localStorageService.get('filter');
-    };
     this.ClearFilter = function () {
         console.log('Filter Clearing Success!');       
         SaveFilter.Category_id = 0;
-        localStorageService.set('filter', SaveFilter);
+        
     }
 
     this.SaveCategoryFilter = function (category_id) {
         SaveFilter.Category_id = category_id;
-        localStorageService.set('filter', SaveFilter);
     };
     this.CategoryFilter = function () {
         console.log('output param:');
-        console.log(localStorageService.get('filter'));
+        console.log(SaveFilter.Category_id);
         return $http({
             url: 'http://localhost:14396/Search/GetAnnFilter',
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
             },
             method: 'POST',
-            data: { filter: localStorageService.get('filter') }
+            data: { filter: SaveFilter }
         });
     };
     this.GetAnn = function () {
         return $http({
-            url: 'http://192.168.100.101/Searching/WCFRESTService.svc/GetAnnouncing',
+            url: 'http://192.168.100.101/api/WCFRESTService.svc/GetAnnouncing',
             method: 'GET'
         });
-    }
+    };
 }
 ApiService.$inject = ['$http','localStorageService'];

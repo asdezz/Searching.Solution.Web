@@ -11,7 +11,7 @@
         {
             <li><a ui-sref=".Announcing({categories_id:@c.Categories_id})" style="color:#013846;">@c.Name_Category</a></li>
         }*@
-        <li ng-repeat="category in Categories"><a ng-click="GetAnnForCategories(category.Categories_id)" ui-sref=".Announcing({categories_id:{{category.Categories_id}}})" style="color:#013846;">{{category.Name_Category}}</a></li>
+        <li ng-repeat="category in Categories"><a  ui-sref=".Announcing({categories_id:{{category.Categories_id}}})" style="color:#013846;">{{category.Name_Category}}</a></li>
     </ul>
 </div>
 <div ui-view="AnnContainer">

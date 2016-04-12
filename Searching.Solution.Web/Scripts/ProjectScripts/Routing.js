@@ -5,7 +5,7 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider)
     $stateProvider
         .state('stateSearch', {
             url: '/Search',
-            params:{categories_id:0,},
+            
             views: {
                 "SearchContainer": {
                     templateUrl: '/Navigation/Search',
@@ -31,10 +31,8 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider)
         })
         .state('stateSearch.Announcing', {
             url: '/Announcing?categories_id',
-            
             views: {
                 "AnnContainer": {
-                    params: { categories_id: null },
                     templateUrl: function (param) { return '/Search/AnnouncingList?categories_id=' + param.categories_id; },
                     controller: AnnController
                 }
