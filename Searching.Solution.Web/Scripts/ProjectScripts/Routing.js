@@ -1,43 +1,126 @@
 ﻿
-var configFunction = function ($stateProvider, $httpProvider, $locationProvider) {
+var configFunction = function ($stateProvider, $httpProvider, $locationProvider, $routeProvider) {
 
-    $locationProvider.hashPrefix('!').html5Mode(true);
+    //var newBaseUrl = "";
+    //if (window.location.hostname == "localhost") {
+    //    newBaseUrl = "http://localhost:14396/Scripts";
+    //} else {
+    //    var deployedAt = window.location.href.substring(0, window.location.href);
+    //    newBaseUrl = deployedAt + "/Scripts";
+    //}
+    //RestangularProvider.setBaseUrl(newBaseUrl);
+
+    //$routeProvider.otherwise({ redirectTo: '/search/' });
+
+    //$locationProvider.hashPrefix('!').html5Mode(true);
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    }).hashPrefix('!');
     $stateProvider
-        .state('stateSearch', {
-            url: '/Search',
-            
+
+        .state('home', {
+            url: '/search/',
+            templateUrl: 'Home/StartPage',
             views: {
-                "SearchContainer": {
+                "ContentContainer": {
                     templateUrl: '/Navigation/Search',
                     controller: SearchController
+
                 },
-                "AnnContainer@stateSearch": {
-                    templateUrl: '/Search/AnnouncingList',
+                "AnnContainer@home": {
+                    templateUrl: '/Ann/AnnouncingList',
                     controller: AnnController
                 }
             }
         })
-        .state('home', {
+        .state('start', {
             url: '/',
-            templateUrl: 'Home/StartPage'
+            controller: LoadController
         })
-        .state('stateProfile', {
-            url: '/Profile',
-            views: {
-                "SearchContainer": {
-                    templateUrl: '/Navigation/Profile'
-                }
-            }
-        })
+        //.state('stateSearch', {
+        //    url: '/Search',
+        //    views: {
+        //        "ContentContainer": {
+        //            templateUrl: '/Navigation/Search',
+        //            controller: SearchController
+                        
+        //        },
+        //        "AnnContainer@stateSearch": {
+        //            templateUrl: '/Ann/AnnouncingList',
+        //            controller: AnnController
+        //        }
+        //    }
+        //})
+
         .state('stateSearch.Announcing', {
             url: '/Announcing?categories_id',
             views: {
                 "AnnContainer": {
-                    templateUrl: function (param) { return '/Search/AnnouncingList?categories_id=' + param.categories_id; },
+                    templateUrl: function (param) { return '/Ann/AnnouncingList?categories_id=' + param.categories_id; },
                     controller: AnnController
+                }
+            }
+        })
+
+        .state('stateAnn', {
+            url: '/Announcing',
+            views: {
+                "ContentContainer": {
+                    templateUrl: '/Search/Test'
+                }
+            }
+        })
+        
+        .state('stateProfile', {
+            url: '/Profile',
+            views: {
+                "ContentContainer": {
+                    templateUrl: '/Navigation/Profile',
+                    controller: ProfileController,
+                    resolve: {
+                        factory: AuthService
+                        }
+                },
+                "ProfileContainer@stateProfile": {
+                    templateUrl: '/Navigation/Profile',
+                    controller: ProfileController,
+                    resolve: {
+                        factory: AuthService
+                    }
                 }
                 }
         })
+
+        .state('stateLogin', {
+            url: '/Login',
+            views: {
+                "ContentContainer": {
+                    templateUrl: '/Profile/Login',
+                    controller:LoginController
+                }
+            }
+        })
+
+        .state('stateRegistration', {
+            url: '/Registration',
+            views: {
+                "ContentContainer": {
+                    templateUrl: '/Profile/Registration',
+                    controller: RegistrationController
+                }
+            }
+        })
+        
+    .state('home.Announcing', {
+        url: 'Announcing?categories_id',
+        views: {
+            "AnnContainer": {
+                templateUrl: function (param) { return '/Ann/AnnouncingList?categories_id=' + param.categories_id; },
+                controller: AnnController
+            }
+        }
+    })
 }
-configFunction.$inject = ['$stateProvider', '$httpProvider', '$locationProvider'];
+configFunction.$inject = ['$stateProvider', '$httpProvider', '$locationProvider','$routeProvider'];
 app.config(configFunction);

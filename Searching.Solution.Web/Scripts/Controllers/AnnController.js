@@ -1,51 +1,90 @@
-﻿var AnnController = function ($scope, $http, ApiService,$stateParams) {
-    
-    var stateParam = $stateParams.categories_id;
-    if (stateParam ==  undefined) {
-        console.log('check undefined success!');
-        var jsonAnn = ApiService.GetAnn()
-    .success(function (response) {
-        $scope.AnnList = response;
-    })
-    .error(function (fail) {
-        console.log('fail', fail);
-    });
+﻿
+
+var AnnController = function ($scope, $http, ApiService, $stateParams, Contents, CheckAuthService, $cookieStore) {
+    //Filter=clearFilter;
+    var filter = new Filter();
+    var user = new User();
+    var logUser = new LoginUser();
+    var status = {};
+    var selectedAnn = new SelectedAnn();
+    var favoriteAnn = new FavoriteAnn();
+    var stateCategory = $stateParams.categories_id;
+    if (stateCategory != undefined) {
+        filter.Category_id = stateCategory;
     }
-    else{
-    console.log('state param:');
-    console.log(stateParam);
-    ApiService.SaveCategoryFilter($stateParams.categories_id);
-    ApiService.CategoryFilter()
-        .success(function (response) {
-            $scope.AnnList = response;
+    $scope.contents = new Contents(filter);
+
+    $scope.AddtoFavorite = function (ann_id) {
+        status = CheckAuthService.check();
+        if (!status) return;
+            //console.log('Пользователь не авторизирован!');
+           //ApiService.AddtoFavorite(favoriteAnn).success(function (response) {
+           //    console.log('success');
+           //}).error(function (response) {
+           //    console.log('fail');
+           //});
+     
+        console.log('Пользователь авторизирован!');
+        logUser = $cookieStore.get('token');
+        ApiService.GetMyUser(logUser.Mail)
+            .success(function (response) {
+                console.log(response);
+                user = response;
+                console.log('Favorite GetMyUser success!', user);
+                console.log('user:', user);
+                favoriteAnn.Announcing_id = ann_id;
+                favoriteAnn.User_id = user.User_id;
+                console.log('favorite Ann:', favoriteAnn);
+                ApiService.AddtoFavorite(favoriteAnn)
+        .then(function (response) {
+            console.log('Add to favorite response:', response.data);
+            if (response.data.Code == 200) console.log('Операци прошла успешно!');
         })
-        .error(function (fail) {
-            console.log('fail', fail);
-        });
+            }).error(function (fail) {
+                console.log('fail', fail);
+                return;
+            });
     }
-    //var filter = ApiService.GetFilter();
-    //console.log('filter category_id on AnnController:');
-    //console.log(filter);
-    //if (filter.Category_id == 0)
-    //{
-    //var jsonAnn = ApiService.GetAnn()
-    //.success(function (response) {
-    //    $scope.AnnList = response;
-    //})
-    //.error(function (fail) {
-    //    console.log('fail', fail);
-    //});
-    //}
-    //else {
-   
-    //    var jsAnn = ApiService.CategoryFilter()
-    //    .success(function (response) {
-    //        $scope.AnnList = response;
-    //    })
-    //    .error(function (fail) {
-    //        console.log('fail', fail);
-    //    });
+
+    $scope.AddtoSelected = function (ann_id) {
+        status = CheckAuthService.check();
+        if (!status) return;
+        console.log('Пользователь авторизирован!');
+        logUser = $cookieStore.get('token');
+        ApiService.GetMyUser(logUser.Mail)
+            .success(function (response) {
+                console.log(response);
+                user = response;
+                console.log('Favorite GetMyUser success!', user);
+                console.log('user:', user);
+                selectedAnn.Announcing_id = ann_id;
+               selectedAnn.User_id = user.User_id;
+               console.log('selected Ann:', selectedAnn);
+                ApiService.AddtoSelected(selectedAnn)
+        .then(function (response) {
+            console.log('Add to selected response:', response.data);
+            if (response.data.Code == 200) console.log('Операци прошла успешно!');
+        })
+            }).error(function (fail) {
+                console.log('fail', fail);
+                return;
+            });
+    }
+    //$scope.AddAnn = function (ann_id) {
+
+    //    console.log('ann_id:', Ann_id);
+    //    var result = CheckAuthService.check();
+    //    console.log('result code:', result);
+    //    if (result == true) {
+    //        console.log('result=true');
+    //        ApiService.GetAnnFull(ann_id)
+    //        .success(function (response) {
+    //            console.log(response);
+    //        })
+    //        .error(function (fail) {
+    //            console.log(fail);
+    //        });
+    //    }
     //}
 }
-
-AnnController.$inject = ['$scope', '$http', 'ApiService','$stateParams'];
+AnnController.$inject = ['$scope', '$http', 'ApiService', '$stateParams', 'Contents', 'CheckAuthService', '$cookieStore'];

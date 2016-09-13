@@ -13,8 +13,10 @@ namespace Searching.Solution.Web
 
             bundles.Add(new ScriptBundle("~/bundles/logic")
                 .IncludeDirectory("~/Scripts/Controllers", "*.js")
+                .IncludeDirectory("~/Scripts/Factories", "*.js")
                 .IncludeDirectory("~/Scripts/Services", "*.js")
                 .IncludeDirectory("~/Scripts/ProjectScripts","*.js")
+                .IncludeDirectory("~/Scripts/Directions","*.js")
                 );
                 
 

@@ -24,58 +24,58 @@ namespace Searching.Solution.Web.Controllers
             return View();
         }
 
-        public JsonResult testPostMethod(int categories_id)
-        {
-            AnnFilter filter = new AnnFilter(); ;
-            return Json(filter, JsonRequestBehavior.AllowGet);
-        }
-        [AllowCrossSiteJson]
-       
-        public async Task< ActionResult> SaveCategories_id(int filter)
-        {
-           // filter.Category_id = categories_id;
-            List<Announcing> la = new List<Announcing>();
-           // la = await QueryList.GetAnnouncingFilter(filter);
-            return Json(la);
-        }
+        //public JsonResult testPostMethod(int categories_id)
+        //{
+        //    AnnFilter filter = new AnnFilter(); ;
+        //    return Json(filter, JsonRequestBehavior.AllowGet);
+        //}
 
-        public ActionResult SaveCity_id(int city_id)
-        {
-            filter.City_id = city_id;
-            return RedirectToAction("GetAnn", filter);
-        }
-        public ActionResult SaveAreas_id(int areas_id)
-        {
-            filter.Areas_id = areas_id;
-            return RedirectToAction("GetAnn", filter);
-        }
-        public ActionResult SaveCountry_id(int country_id )
-        {
-            filter.Country_id= country_id;
-            return RedirectToAction("GetAnn", filter);
-        }
-        public ActionResult SaveGender_user(char gender_user)
-        {
-            filter.Gender_user = gender_user;
-            return RedirectToAction("GetAnn", filter);
-        }
-        public ActionResult SaveDateAnnouncing(DateTime DateAnnouncing)
-        {
-            filter.DateAnnouncing = DateAnnouncing;
-            return RedirectToAction("GetAnn", filter);
-        }
-        public ActionResult SaveMaxDateBearthday(DateTime MaxDateBearthday)
-        {
-            filter.MaxDateBirthday = MaxDateBearthday;
-            return RedirectToAction("GetAnn", filter);
-        }
-        public ActionResult SaveMinDateBearthday(DateTime MinDateBearthday)
-        {
-            filter.MinDateBirthday = MinDateBearthday;
-            return RedirectToAction("GetAnn", filter);
-        }
-        [HttpPost]
-        public ActionResult Test (AnnFilter filter)
+        //[AllowCrossSiteJson]
+        //public async Task< ActionResult> SaveCategories_id(int filter)
+        //{
+        //   // filter.Category_id = categories_id;
+        //    List<Announcing> la = new List<Announcing>();
+        //   // la = await QueryList.GetAnnouncingFilter(filter);
+        //    return Json(la);
+        //}
+
+        //public ActionResult SaveCity_id(int city_id)
+        //{
+        //    filter.City_id = city_id;
+        //    return RedirectToAction("GetAnn", filter);
+        //}
+        //public ActionResult SaveAreas_id(int areas_id)
+        //{
+        //    filter.Areas_id = areas_id;
+        //    return RedirectToAction("GetAnn", filter);
+        //}
+        //public ActionResult SaveCountry_id(int country_id )
+        //{
+        //    filter.Country_id= country_id;
+        //    return RedirectToAction("GetAnn", filter);
+        //}
+        //public ActionResult SaveGender_user(char gender_user)
+        //{
+        //    filter.Gender_user = gender_user;
+        //    return RedirectToAction("GetAnn", filter);
+        //}
+        //public ActionResult SaveDateAnnouncing(DateTime DateAnnouncing)
+        //{
+        //    filter.DateAnnouncing = DateAnnouncing;
+        //    return RedirectToAction("GetAnn", filter);
+        //}
+        //public ActionResult SaveMaxDateBearthday(DateTime MaxDateBearthday)
+        //{
+        //    filter.MaxDateBirthday = MaxDateBearthday;
+        //    return RedirectToAction("GetAnn", filter);
+        //}
+        //public ActionResult SaveMinDateBearthday(DateTime MinDateBearthday)
+        //{
+        //    filter.MinDateBirthday = MinDateBearthday;
+        //    return RedirectToAction("GetAnn", filter);
+        //}
+        
+        public ActionResult Test ()
         {
             var strang = ""; 
             return Json(strang);

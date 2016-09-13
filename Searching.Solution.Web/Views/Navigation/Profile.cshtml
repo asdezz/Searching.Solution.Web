@@ -10,10 +10,10 @@
     <div class="profile_menu">
         <ul style="float:left; text-align:left;">
             <li style=""><a href="">Мои объявления</a></li>
-            <li><a href="">Архив объявлений</a></li>
+            <li><a href="" ng-if="testIf">Архив объявлений</a></li>
             <li><a href="">Мои подписчики</a></li>
-            <li><a href="">Настройки</a></li>
-            <li><a href="">Выйти</a></li>
+            <li><a ng-click="test()">Настройки</a></li>
+            <li><a ng-click="exit()" href="">Выйти</a></li>
         </ul>
     </div>
 

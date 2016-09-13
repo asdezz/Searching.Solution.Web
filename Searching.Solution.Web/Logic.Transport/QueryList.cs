@@ -85,6 +85,21 @@ namespace Searching.Solution.Web.Logic.Transport
             List<Country> _countries = JsonConvert.DeserializeObject<List<Country>>(result);
             return _countries;
         }
-
+        public static async Task<ReturnValue> AddtoSelected(Selected_Announcing _ann)
+        {
+            ReturnValue returnV = new ReturnValue();
+            var param =JsonConvert.SerializeObject(new { ann = _ann });
+            var result = await AccessService.ServiceCalled("POST", "AddToSelected", param);
+            returnV = JsonConvert.DeserializeObject<ReturnValue>(result);
+            return returnV;
+        }
+        public static async Task<ReturnValue> AddtoFavorite(Selected_Announcing _ann)
+        {
+            ReturnValue returnV = new ReturnValue();
+            var param = JsonConvert.SerializeObject(new { ann = _ann });
+            var result = await AccessService.ServiceCalled("POST", "AddToFavorite", param);
+             returnV = JsonConvert.DeserializeObject<ReturnValue>(result);
+            return returnV;
+        }
     }
 }

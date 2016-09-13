@@ -175,6 +175,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AnnController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -226,8 +228,13 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Controllers\AnnController.js" />
+    <Content Include="Scripts\Controllers\LoadController.js" />
+    <Content Include="Scripts\Controllers\ProfileController.js" />
+    <Content Include="Scripts\Controllers\LoginController.js" />
+    <Content Include="Scripts\Controllers\RegistrationController.js" />
     <Content Include="Scripts\Controllers\SearchController.js" />
     <Content Include="Scripts\Controllers\StartController.js" />
+    <Content Include="Scripts\Factories\Contents.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -237,10 +244,19 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\ProjectScripts\App.js" />
+    <Content Include="Scripts\Directions\CheckPass.js" />
+    <Content Include="Scripts\ProjectScripts\Scroll.js" />
+    <Content Include="Scripts\ProjectScripts\testDirective.js" />
+    <Content Include="Scripts\ProjectScripts\Variables.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\ProjectScripts\Routing.js" />
     <Content Include="Scripts\Services\ApiService.js" />
+    <Content Include="Scripts\Services\AuthService.js" />
+    <Content Include="Scripts\Services\CheckAuthService.js" />
+    <Content Include="Scripts\Services\Test.js" />
+    <Content Include="Scripts\Services\TestService.js" />
+    <Content Include="Scripts\sessions.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -255,10 +271,14 @@
     <Content Include="Views\Navigation\Search.cshtml" />
     <Content Include="Views\Search\AnnouncingList.cshtml" />
     <Content Include="Views\Navigation\Profile.cshtml" />
+    <Content Include="Views\Profile\Login.cshtml" />
+    <Content Include="Views\Profile\Registration.cshtml" />
+    <Content Include="Views\Search\Test.cshtml" />
+    <Content Include="Views\Ann\AnnouncingList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Ann\" />
+    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -286,7 +306,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>14396</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:14396/</IISUrl>
+          <IISUrl>http://localhost:14396/search</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:14396/search</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

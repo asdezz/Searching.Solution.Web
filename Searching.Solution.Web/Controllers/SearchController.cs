@@ -12,24 +12,29 @@ namespace Searching.Solution.Web.Controllers
     public class SearchController : Controller
     {
        
-        public ActionResult AnnouncingList(/*int categories_id = 0*/)
+        public ActionResult AnnouncingList()
         {
-            //List<Announcing> la = new List<Announcing>();
-            //if (categories_id == 0) { 
-            // la = await QueryList.GetAnnouncing();
-            //}
-            //else
-            //{ 
-            //_filter.Category_id = categories_id;
-            // la = await QueryList.GetAnnouncingFilter(_filter);
-            //}
-            return View(/*la*/);
+            return View();
         }
 
-        public async Task<ActionResult>GetAnnFilter(AnnFilter filter) {
-        List<Announcing> la = new List<Announcing>();
-            la = await QueryList.GetAnnouncingFilter(filter);   
-            return Json(la);
-        } 
+        //public async Task<ActionResult> GetAnnFilter(AnnFilter filter)
+        //{
+        //    List<Announcing> la = new List<Announcing>();
+        //    la = await QueryList.GetAnnouncingFilter(filter);
+        //    return Json(la);
+        //}
+        ////public async Task<ActionResult> GetAnnFilter()
+        ////{
+        ////    AnnFilter filter = new AnnFilter();
+        ////    List<Announcing> la = new List<Announcing>();
+        ////    la = await QueryList.GetAnnouncingFilter(filter);
+        ////    return Json(la);
+        ////}
+        //public async Task<ActionResult> GetAnnFull(int announcing_id)
+        //{
+        //    Announcing ann = new Announcing();
+        //    ann = await QueryList.GetAnnouncingFull(announcing_id.ToString());
+        //    return Json(ann);
+        //}
     }
 }
