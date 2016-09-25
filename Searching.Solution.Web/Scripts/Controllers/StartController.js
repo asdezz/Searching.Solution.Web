@@ -16,7 +16,11 @@
 
 var StartController = function ($scope, $http, ApiService, CheckAuthService, $cookieStore) {
     $scope.authUser = false;
-    
+    //ApiService.Auth($cookieStore.get('token')).success(function (response) {
+    //    console.log(response);
+    //}).error(function(fail){
+    //    console.log(fail);
+    //});
     $scope.CheckService = CheckAuthService;
      $scope.authUser = CheckAuthService.check();
      if ($scope.authUser == true) {

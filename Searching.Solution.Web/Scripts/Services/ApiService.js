@@ -8,7 +8,7 @@
 var ApiService = function ($q, $http, localStorageService, $timeout) {
     this.GetCategories = function () {
         return $http({
-            url: 'http://searching.in.ua:1703//api/WCFRESTService.svc/GetCategories',
+            url: 'http://192.168.100.101//api/WCFRESTService.svc/GetCategories',
             method: 'GET'
         });
     };
@@ -38,7 +38,7 @@ var ApiService = function ($q, $http, localStorageService, $timeout) {
     };
     this.GetAnn = function () {
         return $http({
-            url: 'http://searching.in.ua:1703//api/WCFRESTService.svc/GetAnnouncing',
+            url: 'http://http://192.168.100.101//api/WCFRESTService.svc/GetAnnouncing',
             method: 'GET'
         });
     };
@@ -50,16 +50,6 @@ var ApiService = function ($q, $http, localStorageService, $timeout) {
             },
             method: 'POST',
             data: { announcing_id: ann_id }
-        });
-    };
-    this.testAuth = function (authUser) {
-        return $http({
-            url: 'http://localhost:14396/Profile/AuthUser',
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8'
-            },
-            method: 'POST',
-            data: { user: _user }
         });
     };
     this.Auth = function (authUser) {

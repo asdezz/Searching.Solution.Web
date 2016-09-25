@@ -57,6 +57,7 @@ namespace Searching.Solution.Web.Logic.Transport
             Announcing ann = JsonConvert.DeserializeObject<Announcing>(result);
             return ann;
         }
+
         public static async Task<ReturnValue> Registration(UserList _user)
         {
             var param = JsonConvert.SerializeObject(new { user = _user });
@@ -64,12 +65,14 @@ namespace Searching.Solution.Web.Logic.Transport
             ReturnValue returnV = JsonConvert.DeserializeObject<ReturnValue>(result);
             return returnV;
         }
+
         public static async Task<ReturnValue> Auth(UserList _user)
         {
             var param = JsonConvert.SerializeObject(new { user = _user });
             var result = await AccessService.ServiceCalled("POST", "Auth", param);
             ReturnValue returnV = JsonConvert.DeserializeObject<ReturnValue>(result);
             return returnV;
+
         }
 
         public static async Task<UserList> GetMyUser(string mail)
@@ -79,12 +82,14 @@ namespace Searching.Solution.Web.Logic.Transport
             UserList _rUser = JsonConvert.DeserializeObject<UserList>(result);
             return _rUser;
         }
+
         public static async Task<List<Country>> GetCountries()
         {
             var result = await AccessService.ServiceCalled("GET", "GetCountryList", "");
             List<Country> _countries = JsonConvert.DeserializeObject<List<Country>>(result);
             return _countries;
         }
+
         public static async Task<ReturnValue> AddtoSelected(Selected_Announcing _ann)
         {
             ReturnValue returnV = new ReturnValue();
@@ -93,6 +98,7 @@ namespace Searching.Solution.Web.Logic.Transport
             returnV = JsonConvert.DeserializeObject<ReturnValue>(result);
             return returnV;
         }
+
         public static async Task<ReturnValue> AddtoFavorite(Selected_Announcing _ann)
         {
             ReturnValue returnV = new ReturnValue();

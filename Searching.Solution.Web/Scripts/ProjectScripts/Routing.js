@@ -81,14 +81,14 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
                     resolve: {
                         factory: AuthService
                         }
-                },
-                "ProfileContainer@stateProfile": {
-                    templateUrl: '/Navigation/Profile',
-                    controller: ProfileController,
-                    resolve: {
-                        factory: AuthService
-                    }
                 }
+                //"ProfileContainer@stateProfile": {
+                //    templateUrl: '/Navigation/Profile',
+                //    controller: ProfileController,
+                //    resolve: {
+                //        factory: AuthService
+                //    }
+                //}
                 }
         })
 
