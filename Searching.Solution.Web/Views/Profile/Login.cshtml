@@ -1,28 +1,36 @@
 ﻿
-<div class="login" style="margin-right:400px;" >
-    <h1>Войти</h1>
-    <form name="LoginForm" ng-submit="submit(LoginForm.$valid)">
-        <p><input id="login"  type="email" name="email" value="" placeholder="Логин или Email" required ng-model="email"  /></p>
-        @*<span class="error" ng-show="LoginForm.email.$error.required">
-            Required!
-        </span>
-        <span class="error" ng-show="LoginForm.email.$error.email">
-            Not valid email!
-        </span>*@
-        <p ng-show="LoginForm.email.$invalid && !LoginForm.email.$pristine" class="help-block">Enter a valid email.</p>
-        <p><input id="pass" type="password" name="password" value="" placeholder="Пароль" required ng-model="password" /></p>
-        
-        @*<p ng-show="LoginForm.password" class="help-block">E-mail or password invalid</p>*@
-        <p class="remember_me">
-            <label>
-                <input type="checkbox" name="remember_me" id="remember_me" />
-                Запомнить меня
-            </label>
-            
-        </p>
-        <p><a ui-sref="stateRegistration" class="help-block" style="color:blue">Регистрация</a></p>
-        <p class="submit"><input  type="submit" name="commit" value="Войти" /></p>
-    </form>
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+    <div id="content">
+        <div class="ibox-title text-center">
+            <h3>Авторизация<small> - укажите данные для входа</small></h3>
+        </div>
+        <div class="col-sm-6 b-r m-t-5">
+            <form name="LoginForm" ng-submit="submit(LoginForm.$valid)">
+                <div class="form-group">
+                    <label>Логин</label>
+                    <input id="login"  type="email" name="email" value="" placeholder="Логин или Email" required ng-model="email">
+                    <p ng-show="LoginForm.email.$invalid && !LoginForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                </div>
+
+                <div class="form-group"><label>Пароль</label> 
+                <input id="pass" type="password" name="password" value="" placeholder="Пароль" required ng-model="password"></div>
+                <div class="social text-center">
+                    <small>Социальные сети</small>
+                    <a href="#"><img class="social-vk" src="http://i057.radikal.ru/1607/c4/d711138944ba.png"></a>
+                    <a href="#"><img class="social-vk" src="http://s012.radikal.ru/i319/1607/35/173b1f6109fc.png"></a>
+                </div>
+                <div>
+                    <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" name="commit"><strong>Вход</strong></button>
+                    <label><input type="checkbox" class="i-checks" name="remember_me" id="remember_me"> Запомнить меня</label>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-6 b-r m-t-5 text-center">
+            <h4>Вы еще не с нами?<small> - cоздайте учетную запись прямо сейчас!</small></h4>
+            <a ui-sref="stateRegistration"><i class="fa big-icon fa-user-plus fa-5x"></i></a>
+        </div>
+    </div>
 </div>
 
 

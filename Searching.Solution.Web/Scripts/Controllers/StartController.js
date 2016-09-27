@@ -14,9 +14,15 @@
 //};
 
 
-var StartController = function ($scope, $http, ApiService, CheckAuthService, $cookieStore) {
+var StartController = function ($scope, $http, ApiService, CheckAuthService, $cookieStore, $location) {
     $scope.authUser = false;
-    
+    var loginUser = new LoginUser();
+    var user = new User();
+    //ApiService.Auth($cookieStore.get('token')).success(function (response) {
+    //    console.log(response);
+    //}).error(function(fail){
+    //    console.log(fail);
+    //});
     $scope.CheckService = CheckAuthService;
      $scope.authUser = CheckAuthService.check();
      if ($scope.authUser == true) {
@@ -33,7 +39,7 @@ var StartController = function ($scope, $http, ApiService, CheckAuthService, $co
         );
         
     } else {
-        console.log('Not Auth user');
+        console.log('Not Auth user:',$scope.authUser);
     }
 
     
@@ -68,9 +74,34 @@ var StartController = function ($scope, $http, ApiService, CheckAuthService, $co
         }
     }
 
+    $scope.exit = function () {
+        $cookieStore.remove('token');
+        loginUser.Mail = null;
+        loginUser.Password = null;
+        $location.path('/Login');
+        CheckAuthService.falseStatus();
+
+    }
+
     $scope.$watch('CheckService.status.authorized', function (newVal) {
         console.log('Check Service change Value:', newVal);
         $scope.authUser = newVal;
+        if ($scope.authUser == true) {
+            console.log('$scope.authUser:', $scope.authUser);
+            loginUser = $cookieStore.get('token');
+            ApiService.GetMyUser(loginUser.Mail)
+            .success(function (response) {
+                $scope.user = response;
+                console.log('user:', user);
+            })
+            .error(function (fail) {
+                console.log('fail', fail);
+            }
+            );
+
+        } else {
+            console.log('Not Auth user:', $scope.authUser);
+        }
     })
 }
-StartController.$inject = ['$scope', '$http', 'ApiService','CheckAuthService','$cookieStore'];
+StartController.$inject = ['$scope', '$http', 'ApiService','CheckAuthService','$cookieStore' ,'$location'];

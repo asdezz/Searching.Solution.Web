@@ -2,7 +2,7 @@
 
 var SearchController = function ($scope, $http, ApiService, localStorageService)
 {
-    console.clear();
+  
 //    $scope.FilterAnn = {
 //    Category_id: 0,
 //    Country_id: 0,

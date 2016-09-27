@@ -49,10 +49,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Searching.AL.Transport, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Searching.Solution\AL\Searching.AL.Transport\bin\Debug\Searching.AL.Transport.dll</HintPath>
-    </Reference>
     <Reference Include="Searching.Shared.ModelClasses">
       <HintPath>..\..\Searching.Solution\Shared\Searching.Shared.ModelClasses\bin\Debug\Searching.Shared.ModelClasses.dll</HintPath>
     </Reference>
@@ -192,18 +188,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\admin.css" />
+    <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\demo.css" />
-    <Content Include="Content\ie.css" />
-    <Content Include="Content\reset.css" />
-    <Content Include="Content\slider.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\style.css" />
-    <Content Include="Content\style1.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="images\1.jpg" />
     <Content Include="images\header.gif" />
     <Content Include="images\icon-1.png" />
@@ -224,8 +217,12 @@
     <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\admin.css.map" />
+    <Content Include="Content\admin.scss" />
+    <Content Include="Content\alex" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\style.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Controllers\AnnController.js" />
     <Content Include="Scripts\Controllers\LoadController.js" />
@@ -278,12 +275,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\patterns\" />
+    <Folder Include="Content\plugins\" />
+    <Folder Include="Content\styles\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -306,9 +303,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>14396</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:14396/search</IISUrl>
+          <IISUrl>http://localhost:14396/search/</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://localhost:14396/search</IISAppRootUrl>
+          <IISAppRootUrl>http://localhost:14396/search/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

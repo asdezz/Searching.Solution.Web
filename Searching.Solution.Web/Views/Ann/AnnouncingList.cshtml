@@ -3,8 +3,8 @@
         <a href="index.html">
             <div class="objectava">
                 <a href="asdezz.html">
-                    <img style="border-radius:150%; box-shadow: 0 0 5px rgba(0,0,0,0.5);" src="images/2.jpg"
-                         width="40" height="40" alt="Nickname" />
+                    <img class="img-thumbnail img-responsive thumbnail-border" src="images/1.jpg"
+                         width="10%" height="10%" alt="Nickname" />
                 </a>
 
             </div>
@@ -13,16 +13,17 @@
             <a href=""><p>{{content.UserName}} {{content.UserLastName}}</p></a>
         </div>
         <div class="date" ng-click="AddtoSelected(content.Announcing_id)">
-            20.12.12
+            dd/mm/yyyy
 
         </div>
 
         <div class="advertisements">
             <div @*ng-click="contents.ScrollTo('top')"*@  ng-click="AddtoSelected(content.Announcing_id)" class="nameadvertisements">
+                <!-- Announce title --> 
                 {{content.Name_Announcing}}
             </div>
 
-            @*Здравствуйте. Помогите найти девушку, которая 15. 02. 2016, около 18:00, играла на скрипке в переходе с Театральной на Золотые Ворота. У неё, в чехле для скрипки, была табличка с надписью «для учёбы в университете». Я сильно спешил, посему не мог позволить себе подождать окончания её игры на инструменте, чтобы познакомиться. Если вы это читаете, то я тот парень, который сперва дал немного денег и ушёл, а потом, вернулся, и докинул ещё. Буду весьма признательным, если кто поможет найти скрипачку.*@
+            <!-- Announce text --> 
             {{content.Info_Announcing}}
 
 

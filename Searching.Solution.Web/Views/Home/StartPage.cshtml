@@ -2,46 +2,79 @@
 <html ng-app="appModule" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://use.fontawesome.com/7410a5ef10.js"></script>
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <title>Searching</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/css")
 </head>
 <body ng-controller="StartController">
     <div id="wrapper">
-        <div id="header">
-            <div class="searching" style="float:left; height:70px; width:200px; margin-top:-12px;margin-left:20px;  "><a href="home.html">Searching</a></div>
-            <div class="menu">
-                <ul > 
-                    <li><a ng-click="Clear()" ui-sref="home" style="margin-left:-300px;">Поиск</a></li>
-                    <li><a >Уведомления</a></li>
-                    <li><a ui-sref="stateAnn">Сообщения</a></li>
-                    <li><a href="">Подписки</a></li>
-                    <li><a ui-sref="stateProfile" ng-cloak ng-if="!authUser" style="">Вход</a></li>
-                    <li><a ui-sref="stateProfile" ng-cloak ng-if="authUser" style="">Здравсвтуйте</a></li>
-                </ul>
-            </div>
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom white-bg">
+            <nav class="navbar navbar-static-top" role="navigation">
+                <div class="navbar-header">
+                    <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                        <i class="fa fa-reorder"></i>
+                    </button>
+                    <a href="/" class="navbar-brand">Searching</a>
+                </div>
+                <div class="navbar" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a aria-expanded="false" role="button" href="/">Home</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li><a ng-click="Clear()" ui-sref="home" style="margin-left:-300px;">Поиск</a></li>
+                        <li><a>Уведомления</a></li>
+                        <li><a ui-sref="stateAnn">Сообщения</a></li>
+                        <li><a href="">Подписки</a></li>
+                        <!-- Authentication Links -->
+                        <li><a ui-sref="stateProfile" ng-cloak=ng-cloak ng-if="!authUser" style="">Вход</a></li>
+                        <li class="dropdown" ng-cloak=ng-cloak ng-if="authUser">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{user.Name}}<span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/"><i class="fa fa-btn fa-user"></i> Панель управления</a></li>
+                                <li><a ng-click="exit()" href="/"><i class="fa fa-btn fa-sign-out"></i> Выход</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
+       
         <div ui-view="ContentContainer" id="content" style="">
-            
+
         </div>
 
         <div ui-view="AnntContainer" id="content" style="">
 
         </div>
-        
-    </div>
-    <div>
-    <ng-view>
+        <div>
+            <ng-view>
 
-    </ng-view>
-    </div>
+            </ng-view>
+        </div>
+            <div class="footer">
+                <div>
+                    <strong>Copyright</strong> &copy; 2016
+                </div>
+            </div>
 
-    @*<div class="col-md-6">
-        <div ></div>
-    </div>*@
-    @*<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>*@
-    @*<script src="http://cdn.jsdelivr.net/restangular/1.1.3/restangular.min.js"></script>
-    <script src="http://cdn.jsdelivr.net/underscorejs/1.5.1/underscore-min.js"></script>*@
-    @*<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>*@
+        </div>
+    </div> 
+    
+   
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>

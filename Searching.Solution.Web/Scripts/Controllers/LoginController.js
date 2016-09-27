@@ -21,11 +21,11 @@ var LoginController = function ($scope, ApiService, $location, $cookieStore, Che
         console.log(loginUser);
         ApiService.Auth(loginUser)
         .success(function (response) {
-            console.log(response.Code);
+            console.log('Auth Code:',response.Code);
             if (response.Code == true) {
                 $cookieStore.put('token', loginUser);
-                $location.path('/Profile');
                 CheckAuthService.trueStatus();
+                $location.path('/Profile');
             }
         })
         .error(function (fail) {

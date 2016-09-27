@@ -52,16 +52,6 @@ var ApiService = function ($q, $http, localStorageService, $timeout) {
             data: { announcing_id: ann_id }
         });
     };
-    this.testAuth = function (authUser) {
-        return $http({
-            url: 'http://localhost:14396/Profile/AuthUser',
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8'
-            },
-            method: 'POST',
-            data: { user: _user }
-        });
-    };
     this.Auth = function (authUser) {
         return $http({
             url: 'http://localhost:14396/Profile/AuthUser',
