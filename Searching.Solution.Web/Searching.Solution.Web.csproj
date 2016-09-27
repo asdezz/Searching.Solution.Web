@@ -49,12 +49,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Searching.AL.Transport, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Searching.Shared.ModelClasses, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Searching.Solution\AL\Searching.AL.Transport\bin\Debug\Searching.AL.Transport.dll</HintPath>
-    </Reference>
-    <Reference Include="Searching.Shared.ModelClasses">
-      <HintPath>..\..\Searching.Solution\Shared\Searching.Shared.ModelClasses\bin\Debug\Searching.Shared.ModelClasses.dll</HintPath>
+      <HintPath>..\packages\Searching\Searching.Shared.ModelClasses.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -226,6 +223,7 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="applicationhost.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Controllers\AnnController.js" />
     <Content Include="Scripts\Controllers\LoadController.js" />
@@ -258,6 +256,7 @@
     <Content Include="Scripts\Services\TestService.js" />
     <Content Include="Scripts\sessions.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Searching.Shared.ModelClasses.dll" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
